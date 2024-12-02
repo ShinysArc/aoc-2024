@@ -10,7 +10,7 @@ import (
 )
 
 func TestPart1(t *testing.T) {
-	testData := ParseInput("test_input.txt")
+	testData := utils.ParseInput("test_input.txt")
 
 	expected := 42 // Replace with expected result
 	got := part1(testData)
@@ -21,7 +21,7 @@ func TestPart1(t *testing.T) {
 }
 
 func TestPart2(t *testing.T) {
-	testData := ParseInput("test_input.txt")
+	testData := utils.ParseInput("test_input.txt")
 
 	expected := 84 // Replace with expected result
 	got := part2(testData)
