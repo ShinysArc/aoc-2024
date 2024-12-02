@@ -2,21 +2,14 @@ package main
 
 import (
 	"fmt"
-	"io/ioutil"
 	"strings"
+
+	"adventofcode2024/utils"
 )
 
 func main() {
-	// Determine input file
-	inputFile := "input.txt"
-
 	// Read input file
-	input, err := ioutil.ReadFile(inputFile)
-	if err != nil {
-		fmt.Println("Error reading input:", err)
-		return
-	}
-	data := strings.Split(strings.TrimSpace(string(input)), "\n")
+	data := utils.ParseInput("input.txt")
 
 	// Solve parts
 	fmt.Println("Part 1:", part1(data))
