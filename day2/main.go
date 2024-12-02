@@ -18,8 +18,6 @@ func main() {
 
 func safe(list []int) (bool, int) {
 	isInc := list[0] <= list[1]
-
-	//fmt.Println(list)
 	for i := 1; i < len(list); i++ {
 		var diff int
 		if isInc {
@@ -67,16 +65,19 @@ func part2(data []string) int {
 		for _, el := range strList {
 			list = append(list, utils.ToInt(el))
 		}
-		isSafe, _ := safe(list)
+		isSafe, i := safe(list)
 		if isSafe {
 			res++
 		} else {
-			for i := 0; i < len(list); i++ {
-				list1 := remove(list, i)
+			list1 := remove(list, i-1)
+			isSafe, _ = safe(list1)
+			if isSafe {
+				res++
+			} else {
+				list1 = remove(list, i)
 				isSafe, _ = safe(list1)
 				if isSafe {
 					res++
-					break
 				}
 			}
 		}
