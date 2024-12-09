@@ -32,3 +32,24 @@ func ToInt(arg interface{}) int {
 	}
 	return val
 }
+
+func SplitByEmptyLine(data []string) [][]string {
+	var res [][]string
+
+	var textBlock []string
+	for _, line := range data {
+		line = strings.TrimSpace(line)
+		if len(line) > 0 {
+			textBlock = append(textBlock, line)
+		} else {
+			if len(textBlock) > 0 {
+				res = append(res, textBlock)
+			}
+			textBlock = []string{}
+		}
+	}
+	if len(textBlock) > 0 {
+		res = append(res, textBlock)
+	}
+	return res
+}
